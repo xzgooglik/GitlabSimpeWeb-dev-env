@@ -10,7 +10,7 @@ compile:
   script: 
   - echo "------------------CreateFile Started------------------"
   - ls -la
-  - echo "Build by jenkins $BUILD_ID" >> index.html
+  - echo "Build by Gitlab" >> index.html
   - cat index.html
   - echo "--------------------File Finished---------------------"
 
