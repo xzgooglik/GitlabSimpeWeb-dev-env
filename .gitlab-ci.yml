@@ -48,4 +48,4 @@ delpoy:
   - ls -la
   script:
   - scp -i ~/.ssh/ssh_key package.gz ec2-user@13.48.123.71:/var/www/html/
-  - ssh -T ec2-user@13.48.123.71 -i ~/.ssh/ssh_key "gunzip -c package.gz > index.html"
+  - ssh -T ec2-user@13.48.123.71 -i ~/.ssh/ssh_key "gunzip -c package.gz > index.html && sudo service httpd restart"
