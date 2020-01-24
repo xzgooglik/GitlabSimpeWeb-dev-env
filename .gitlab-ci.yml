@@ -10,7 +10,7 @@ compile:
   script: 
   - echo "------------------CreateFile Started------------------"
   - ls -la
-  - echo "Build by Gitlab" >> index.html
+  - echo "Build by Gitlab $CI_PIPELINE_ID" >> index.html
   - cat index.html
   - echo "--------------------File Finished---------------------"
 
@@ -47,5 +47,5 @@ delpoy:
   - chmod 600 ~/.ssh/ssh_key
   - ls -la
   script:
-  - scp -i ~/.ssh/ssh_key package.gz ec2-user@13.48.123.71:/home/ec2-user/
+  - scp -i ~/.ssh/ssh_key package.gz ec2-user@13.48.123.71:$REMOUTE_DIR
   - ssh -T ec2-user@13.48.123.71 -i ~/.ssh/ssh_key "gunzip -c package.gz > /var/www/html/index.html && rm package.gz  && sudo service httpd restart"
